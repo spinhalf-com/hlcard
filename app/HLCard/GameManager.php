@@ -9,7 +9,6 @@
 namespace App\HLCard;
 
 use App\HLCard\GameManagerInterface;
-use Illuminate\Support\Facades\Session;
 use Exception;
 
 use App\HLCard\CardApiInterface;
@@ -35,8 +34,8 @@ class GameManager implements GameManagerInterface
     {
         $cards                  = $this->retrieveCardList();
 
-        Session::set('deck', $cards);
-        Session::set('position', 1);
+        session(['deck' => $cards]);
+        session(['position' => 1]);
 
         return ['first_card' => $cards[0], 'status' => 'New Game Started'];
     }
@@ -76,10 +75,10 @@ class GameManager implements GameManagerInterface
      */
     public function guessNext($direction)
     {
-        $cards                  = Session::get('deck');
+        $cards                  = session('deck');
 
-        $nextPosition           = Session::get('position') + 1;
-        $lastPosition           = Session::get('position');
+        $nextPosition           = session('position') + 1;
+        $lastPosition           = session('position');
 
         $thisCard               = $cards[$nextPosition];
         $lastCard               = $cards[$lastPosition];
@@ -88,7 +87,7 @@ class GameManager implements GameManagerInterface
 
         if($result)
         {
-            Session::set('position', $nextPosition);
+            session(['position' => $nextPosition]);
         }
 
         return $result;

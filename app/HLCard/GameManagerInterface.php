@@ -14,5 +14,5 @@ interface GameManagerInterface
     public function retrieveCardList();
     public function guessNext($direction);
     public function compareCard($lastCard, $thisCard, $guess);
-
+    public function ordinalise($cardValue);
 }

@@ -14,14 +14,33 @@ use GuzzleHttp\Client;
 class CardApi implements CardApiInterface
 {
     protected $cardApiUrl;
+    protected $guzzleClient;
 
     function __construct()
     {
         $this->cardApiUrl           = env('CARD_API_URL');
+        $this->makeClient();
+    }
+
+    private function makeClient()
+    {
+        $this->guzzleClient         = new Client(); //GuzzleHttp\Client
     }
 
     public function getCards()
     {
-        // TODO: Implement getCards() method.
+        $cardResponse               = $this->guzzleClient->get($this->cardApiUrl);
+
+//        dd($cardResponse->getBody()->getContents());
+
+        return $cardResponse->getBody()->getContents();
     }
 }
+
+
+
+//$result = $client->post('your-request-uri', [
+//    'form_params' => [
+//        'sample-form-data' => 'value'
+//    ]
+//]);

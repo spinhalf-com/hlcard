@@ -8,6 +8,7 @@
 
 namespace App\HLCard;
 
+
 interface CardApiInterface
 {
     public function getCards();

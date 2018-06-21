@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\HLCard\GameManagerInterface;
-
+use Illuminate\Support\Facades\Response;
 
 class GameController extends Controller
 {
@@ -23,13 +23,15 @@ class GameController extends Controller
      */
     public function newGame()
     {
+        $game                       = $this->gameManager->newGame();
 
+        return response()->json(['status' => 200, 'info' => $game], 200);
     }
 
     /**
      * RETRIEVES NEXT CARD
      */
-    public function getNextCard()
+    public function nextGuess()
     {
 
     }
@@ -39,8 +41,10 @@ class GameController extends Controller
      *
      * @return void
      */
-    public function game()
+    public function gamepage()
     {
         return view()->make('gamepage');
     }
+
+
 }

@@ -10,7 +10,9 @@ namespace App\HLCard;
 
 interface GameManagerInterface
 {
+    public function newGame();
     public function retrieveCardList();
-    public function getNextCard();
+    public function guessNext($direction);
+    public function compareCard($lastCard, $thisCard, $guess);
 
 }

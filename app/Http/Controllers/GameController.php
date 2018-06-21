@@ -47,10 +47,4 @@ class GameController extends Controller
     {
         return view()->make('gamepage');
     }
-
-    public function session()
-    {
-        dd(session()->all());
-    }
-
 }

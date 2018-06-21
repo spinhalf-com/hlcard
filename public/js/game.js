@@ -4,7 +4,7 @@ $(document).ready(function()
     $('#newgame').click(function()
     {
         // console.log('game');
-        $('.arrow').prop('disabled', false);
+        $('.arrow').show();
 
         var gameData = $.ajax({
             type: 'GET',
@@ -58,7 +58,7 @@ function setNext(result)
     {
         $('#status').html('Game Over');
         $('#score').html('Score: ' + result.score);
-        $('.arrow').prop('disabled', true);
+        $('.arrow').hide();
     }
     else
     {

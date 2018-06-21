@@ -18,8 +18,10 @@
         <div id="game">
             <div id="status">No game loaded</div>
 
+            <div class = "arrow" direction="up">HIGHER</div>
+            <div class = "arrow" direction="down">LOWER</div>
 
-            <button id="newgame">New Game</button>
+            <button class="btn btn-success" id="newgame">New Game</button>
 
         </div>
 

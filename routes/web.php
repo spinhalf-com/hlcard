@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('game', 'GameController@gamepage');
+Route::get('session', 'GameController@session');

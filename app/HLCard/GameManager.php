@@ -90,7 +90,7 @@ class GameManager implements GameManagerInterface
             session(['position' => $nextPosition]);
         }
 
-        return $result;
+        return ['result' => $result, 'next_card' => $thisCard, 'score' => $lastPosition];
     }
 
     /**

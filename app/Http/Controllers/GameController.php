@@ -29,11 +29,13 @@ class GameController extends Controller
     }
 
     /**
-     * RETRIEVES NEXT CARD
+     * PROCESSES NEXT GUESS
      */
-    public function nextGuess()
+    public function nextGuess($guess)
     {
+        $result                     = $this->gameManager->guessNext($guess);
 
+        return response()->json($result, 200);
     }
 
     /**
@@ -46,5 +48,9 @@ class GameController extends Controller
         return view()->make('gamepage');
     }
 
+    public function session()
+    {
+        dd(session()->all());
+    }
 
 }

@@ -17,6 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('next_guess', 'GameController@nextGuess/{guess}');
+Route::put('next_guess/{guess}', 'GameController@nextGuess');
 
 Route::get('newgame', 'GameController@newGame');
